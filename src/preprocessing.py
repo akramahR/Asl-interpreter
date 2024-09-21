@@ -63,3 +63,28 @@ def load_data_and_labels(data_dir):
                 labels.append(label)
 
     return np.array(data), np.array(labels)
+
+
+def load_video_paths_and_labels(data_dir):
+    video_paths = []
+    start_times = []
+    end_times = []
+    labels = []
+
+    for sign_dir in os.listdir(data_dir):
+        sign_path = os.path.join(data_dir, sign_dir)
+
+        for file_name in os.listdir(sign_path):
+            if file_name.endswith('_metadata.json'):
+                metadata_path = os.path.join(sign_path, file_name)
+
+                with open(metadata_path, 'r') as f:
+                    metadata = json.load(f)
+
+                video_paths.append(metadata['file'])
+                start_times.append(metadata['start_time'])
+                end_times.append(metadata['end_time'])
+                labels.append(metadata['clean_text'])
+
+    return video_paths, labels, start_times, end_times
+
