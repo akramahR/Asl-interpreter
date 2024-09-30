@@ -1,12 +1,12 @@
 import numpy as np
 from src.preprocessing import preprocess_video_segment, load_data_and_labels
-from src.model import create_3d_cnn_model, compile_and_train_model
+from src.model import create_3d_cnn_model, compile_and_train_model, I3D
 from sklearn.preprocessing import LabelEncoder
 from tensorflow.keras.utils import to_categorical
 import os
 
 # Load data and labels
-data_dir = '../videos1'
+data_dir = '../scripts/tdd/vid'
 data, labels = load_data_and_labels(data_dir)
 
 # Encode labels
@@ -17,7 +17,8 @@ labels_one_hot = to_categorical(labels_encoded, num_classes=num_classes)
 
 # Create and train model
 input_shape = data.shape[1:]
-model = create_3d_cnn_model(input_shape, num_classes)
+
+model = I3D(input_shape, num_classes)
 model = compile_and_train_model(model, data, labels_one_hot, epochs=20, batch_size=4)
 
 # Create the directory if it doesn't exist
