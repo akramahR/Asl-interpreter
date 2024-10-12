@@ -3,11 +3,11 @@ from pytubefix import YouTube
 import os
 
 # Load the train data
-with open('../data/MSASL_test.json', 'r') as f:
+with open('../data/MSASL_train.json', 'r') as f:
     train_data = json.load(f)
 
 # Directory to save the downloaded videos
-download_dir = 'test_videos'
+download_dir = 'videos'
 
 # Directory to save failed downloads
 failed_downloads_file = 'failed_downloads.json'

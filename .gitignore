@@ -6,3 +6,12 @@ videos2/
 testvideos/
 /scripts/test_videos/
 /scripts/tdd/
+
+.idea/
+*.pyo
+*.pyc
+*.pth
+*.pkl
+*.md
+*.npy
+*.keras
