@@ -26,7 +26,7 @@ video_paths, labels, start_times, end_times, fps_list = load_video_paths_and_lab
 
 # Filter out videos with less than 10 occurrences of a label
 label_counts = Counter(labels)
-common_labels = [label for label, count in label_counts.items() if count > 16]
+common_labels = [label for label, count in label_counts.items() if count > 15]
 # Print the common labels
 print("Common labels:", common_labels)
 

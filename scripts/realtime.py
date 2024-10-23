@@ -1,9 +1,9 @@
 import cv2
 import numpy as np
 import pickle
-from models import ImprovedNN
+from src.model import ImprovedNN
 from slowfast.models import build_model
-from preprocessing import processFramesToTensor
+from src.preprocessing import processFramesToTensor
 import torch
 from slowfast.config.defaults import assert_and_infer_cfg
 from slowfast.utils.parser import load_config, parse_args

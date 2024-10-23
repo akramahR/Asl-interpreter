@@ -1,4 +1,6 @@
 from collections import Counter
+
+from src.preprocessing import load_video_paths_and_labels
 from videoGenerator import *
 
 # Load video paths, labels, start_times, and end_times
